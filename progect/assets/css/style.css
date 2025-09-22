@@ -1,0 +1,201 @@
+/* ====== إعدادات عامة ====== */
+:root {
+  --brand: #009688;     /* اللون الأساسي (تركوازي) */
+  --success: #28a745;   /* الأخضر */
+}
+
+body {
+  font-family: "Tajawal", "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f8f9fa;
+  direction: rtl;
+}
+
+/* ====== الشريط العلوي ====== */
+.topbar {
+  background: var(--brand);
+  font-size: 0.9rem;
+}
+.topbar a {
+  transition: color 0.3s ease;
+}
+.topbar a:hover {
+  color: #ffeb3b; /* أصفر فاتح عند المرور */
+}
+
+/* ====== القائمة (Navbar) ====== */
+.navbar .btn-nav {
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #333 !important;
+  background-color: #009688;
+}
+.navbar .btn-nav:hover {
+  background-color: var(--brand);
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ====== زر احجز موعد ====== */
+.navbar .btn-outline-success {
+  border: 2px solid var(--success);
+  transition: all 0.3s ease;
+}
+.navbar .btn-outline-success:hover {
+  background-color: var(--success);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ====== سلايدر Fade مع نصوص ====== */
+.fade-slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 450px; /* زودنا الطول عشان النص يبان */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  background: #000; /* خلفية داكنة خلف الصور */
+}
+
+.fade-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* يخلي النص تحت */
+  align-items: center;
+}
+
+.fade-slide img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.fade-slide .caption {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.fade-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+/* ====== بطاقات المقدمة ====== */
+.card-title {
+  font-weight: 700;
+}
+
+/* ====== خدماتنا ====== */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  background: #009688;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== فريق الأطباء ====== */
+.doctor-card img {
+  object-fit: cover;
+  border: 4px solid var(--brand);
+  transition: transform 0.3s ease;
+}
+.doctor-card:hover img {
+  transform: scale(1.05);
+}
+.doctor-card .social-links a {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.doctor-card .social-links a:hover {
+  color: var(--brand);
+}
+
+/* ====== نموذج احجز موعد ====== */
+#appointmentForm {
+  max-width: 900px;
+  margin: 0 auto;
+}
+#appointmentForm .form-label {
+  font-weight: 600;
+}
+
+/* ====== صفحة تسجيل الدخول + تواصل معنا ====== */
+#loginForm, #signupForm {
+  max-width: 450px;
+  margin: 0 auto;
+}
+#signupForm .btn {
+  margin-top: 10px;
+}
+
+/* ====== استجابة (Responsive) ====== */
+@media (max-width: 768px) {
+  .ws_images img {
+    height: 40vh !important;
+  }
+  .doctor-card img {
+    width: 120px;
+    height: 120px;
+  }
+  #appointmentForm {
+    padding: 1rem !important;
+  }
+}
+@media (max-width: 576px) {
+  .doctor-card img {
+    width: 100px;
+    height: 100px;
+  }
+  .service-card {
+    padding: 1.5rem;
+  }
+  .service-card h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ====== الفوتر ====== */
+footer a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+footer a:hover {
+  color: var(--brand);
+  transform: scale(1.2);
+}
+
+/* ====== صور الأطباء (مستطيلة رأسية) ====== */
+.doctor-img {
+  width: 100%;
+  max-width: 280px;    /* أقصى عرض */
+  height: 380px;       /* ارتفاع ثابت */
+  object-fit: cover;   /* يملأ الصورة بدون تشويه */
+  border-radius: 12px; /* زوايا ناعمة */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.doctor-card:hover .doctor-img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
